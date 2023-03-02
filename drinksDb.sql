@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS drinks
+DROP TABLE IF EXISTS drinks;
 CREATE TABLE drinks (
     id serial primary key,
     name varchar,
     type varchar,
-    liquor_id
+    liquor_id int
 );
