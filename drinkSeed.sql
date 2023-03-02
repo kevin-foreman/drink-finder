@@ -1,2 +1,17 @@
 INSERT INTO drinks (name, type, liquor_id) VALUES ('Titos & Soda', 'Cocktail', 1);
 INSERT INTO drinks (name, type, liquor_id) VALUES ('Vodka Tonic', 'Cocktail', 1);
+INSERT INTO drinks (name, type, liquor_id) VALUES ('Stormin Sailor', 'Cocktail', 8);
+INSERT INTO drinks (name, type, liquor_id) VALUES ('Cranberry & Rum', 'Daiquiri', 8);
+INSERT INTO drinks (name, type, liquor_id) VALUES ("Sailor's Yule", 'Nog', 8);
+INSERT INTO drinks (name, type, liquor_id) VALUES ("Cup O' Jerry", 'Coffee', 8);
+INSERT INTO drinks (name, type, liquor_id) VALUES ('Sevilla', 'Spritz', 2);
+INSERT INTO drinks (name, type, liquor_id) VALUES ('The Number 10', 'Martini', 2);
+INSERT INTO drinks (name, type, liquor_id) VALUES ('', 'Cocktail', 2);
+INSERT INTO drinks (name, type, liquor_id) VALUES ('Vodka Tonic', 'Cocktail', 3);
+INSERT INTO drinks (name, type, liquor_id) VALUES ('Vodka Tonic', 'Cocktail', 3);
+INSERT INTO drinks (name, type, liquor_id) VALUES ('Vodka Tonic', 'Cocktail', 3);
+INSERT INTO drinks (name, type, liquor_id) VALUES ('Vodka Tonic', 'Cocktail', 4);
+INSERT INTO drinks (name, type, liquor_id) VALUES ('Vodka Tonic', 'Cocktail', 4);
+INSERT INTO drinks (name, type, liquor_id) VALUES ('Vodka Tonic', 'Cocktail', 4);
+
+
