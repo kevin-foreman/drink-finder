@@ -1,4 +1,6 @@
 // set up dependencies
+const cors = require('cors');
+app.use(cors());
 const express = require('express');
 const app = express();
 const fs = require('fs');
@@ -202,6 +204,8 @@ app.delete("/api/drinks/:id", (req, res, next) => {
         }
     });
 });
+
+app.use(cors({ origin: '*' }));
 
 const port = process.env.port || 8000;
 app.listen(port, () => {
