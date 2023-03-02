@@ -11,8 +11,8 @@ app.use(express.json());
 const pool = new Pool({
     host: '127.0.0.1',
     user: 'postgres',
-    database: 'drinks',
-    password: 'password1234',
+    database: 'drinkShop',
+    password: 'password',
     port: 5432
 });
 
@@ -27,4 +27,18 @@ app.get('/api/drinks', (req, res, next) => {
     });
 });
 
-app.listen()
+app.get('/api/liquor', (req, res, next) => {
+    pool.query("Select * FROM liquor", (err, result) => {
+        if (err) {
+            return next(err);
+        }
+        const rows = result.rows;
+        console.log(rows);
+        res.send(rows); 
+    });
+});
+
+const port = process.env.port || 8000;
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+});

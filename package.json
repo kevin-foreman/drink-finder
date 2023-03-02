@@ -2,8 +2,9 @@
   "name": "drink-finder",
   "version": "1.0.0",
   "description": "Drink Finder",
-  "main": "app.js",
+  "main": "restfulDrinkServer.js",
   "scripts": {
+    "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
