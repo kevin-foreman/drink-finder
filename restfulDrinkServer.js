@@ -65,8 +65,8 @@ app.get('/api/drinks/:id', (req, res, next) => {
 });
 
 app.post('/api/liquor/', (req, res, next) => {
-    const age = parseInt(req.body.age);
-    const { name, proof } = req.body;
+    const proof = parseInt(req.body.proof);
+    const { name } = req.body;
 
     if (!name || !proof || Number.isNaN(proof)) {
         return res.status(400).send('Error: missing values')
@@ -79,6 +79,24 @@ app.post('/api/liquor/', (req, res, next) => {
             let liquorInfo = result.rows[0];
             console.log('Added: ' + liquorInfo);
             res.status(200).send(liquorInfo);
+        });
+    };
+});
+
+app.post('/api/drinks/', (req, res, next) => {
+    const { name, type, liquor_id } = req.body;
+
+    if (!name || !type || !liquor_id ) {
+        return res.status(400).send('Error: missing values')
+    } else {
+
+        pool.query('INSERT INTO drinks (name, type, liquor_id) VALUES ($1, $2, $3) RETURNING *;', [name, type, liquor_id], (err, result) => {
+            if (err) {
+                return next(err);
+            };
+            let drinkInfo = result.rows[0];
+            console.log('Added: ' + drinkInfo);
+            res.status(200).send(drinkInfo);
         });
     };
 });
