@@ -38,6 +38,32 @@ app.get('/api/liquor', (req, res, next) => {
     });
 });
 
+app.get('/api/liquor/:id', (req, res, next) => {
+
+    const id = Number.parseInt(req.params.id);
+    const result = pool.query('SELECT name, proof FROM liquor WHERE id = $1', [id], (err, result) => {
+        if (err) {
+            return next(err);
+        };
+        const pet = result.rows[0];
+        console.log(pet);
+        res.send(pet);
+    });
+});
+
+app.get('/api/drinks/:id', (req, res, next) => {
+
+    const id = Number.parseInt(req.params.id);
+    const result = pool.query('SELECT name, type, liquor_id FROM drinks WHERE id = $1', [id], (err, result) => {
+        if (err) {
+            return next(err);
+        };
+        const pet = result.rows[0];
+        console.log(pet);
+        res.send(pet);
+    });
+});
+
 const port = process.env.port || 8000;
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
