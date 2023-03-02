@@ -64,6 +64,25 @@ app.get('/api/drinks/:id', (req, res, next) => {
     });
 });
 
+app.post('/api/liquor/', (req, res, next) => {
+    const age = parseInt(req.body.age);
+    const { name, proof } = req.body;
+
+    if (!name || !proof || Number.isNaN(proof)) {
+        return res.status(400).send('Error: missing values')
+    } else {
+
+        pool.query('INSERT INTO liquor (name, proof) VALUES ($1, $2) RETURNING *;', [name, proof], (err, result) => {
+            if (err) {
+                return next(err);
+            };
+            let liquorInfo = result.rows[0];
+            console.log('Added: ' + liquorInfo);
+            res.status(200).send(liquorInfo);
+        });
+    };
+});
+
 const port = process.env.port || 8000;
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);

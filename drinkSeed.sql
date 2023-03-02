@@ -13,4 +13,4 @@ INSERT INTO drinks (name, type, liquor_id) VALUES ('Blackberry Smash', 'Sipper',
 INSERT INTO drinks (name, type, liquor_id) VALUES ('Dirty Shirley', 'Old-school', 4);
 INSERT INTO drinks (name, type, liquor_id) VALUES ('Pineapple Rum', 'Cocktail', 5);
 INSERT INTO drinks (name, type, liquor_id) VALUES ('Island Rum', 'Punch', 5);
-INSERT INTO drinks (name, type, liquor_id) VALUES ('Captains Passion', 'Punch', 5);
+INSERT INTO drinks (name, type, liquor_id) VALUES ('Captains Passion', 'Punch', 5); 
