@@ -1,0 +1,28 @@
+body {
+  background-image: url("https://wallpaper.dog/large/20376776.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  display: flex;
+}
+
+.header1 {
+  color: white;
+  display: flex;
+  flex-wrap: unset;
+  background-color: grey;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.result-card {
+  width: 600px;
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  display: inline-block;
+}
