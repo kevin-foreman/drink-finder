@@ -1,4 +1,4 @@
-const { pool } = require('pg');
+const { Pool } = require('pg');
 const pool = require('./dbConn');
 
 pool.query(`INSERT INTO drinks (name, type, liquor_id) VALUES
