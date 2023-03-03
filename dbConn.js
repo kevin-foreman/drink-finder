@@ -1,6 +1,6 @@
 // Create a new Pool connection to pg
 
-const { pool } = require('pg');
+const { Pool } = require('pg');
 // Environmental variables for DB connection or use default if not defined
 // Local environment may not have them, but Render will when deployed
 const POSTGRES_HOST = process.env.POSTGRES_HOST || '127.0.0.1';
@@ -19,11 +19,25 @@ const dbConfig = {
 };
 
 // If DATABASE_URL is set as an environmental variable (from Render), use that
-const pool = DATABASE_URL ? new Pool ({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    }
-})
 
-:module.exports = pool;
+let pool = null;
+if (DATABASE_URL) {
+    pool = new Pool({
+        connectionString: process.env.DATABASE_URL,
+        ssl: {
+            rejectUnauthorized: false
+        }
+    })
+} else {
+    pool = new Pool(dbConfig);
+};
+
+// const pool = DATABASE_URL ? new Pool ({
+//     connectionString: process.env.DATABASE_URL,
+//     ssl: {
+//         rejectUnauthorized: false
+//     }
+// }
+// );
+
+module.exports = pool;
