@@ -2,6 +2,7 @@
   "name": "drink-finder",
   "version": "1.0.0",
   "description": "Drink Finder",
+  "type": "module",
   "main": "restfulDrinkServer.js",
   "scripts": {
     "start": "node restfulDrinkServer",
