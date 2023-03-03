@@ -14,4 +14,4 @@ Pool.query(`CREATE TABLE IF NOT EXISTS liquor (
 }
 );
 
-pool.end();
+Pool.end();
