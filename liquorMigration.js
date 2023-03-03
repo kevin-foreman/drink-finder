@@ -15,3 +15,9 @@ pool.query(`CREATE TABLE IF NOT EXISTS liquor (
 );
 
 pool.end();
+
+// CREATE TABLE liquor (
+//     id serial primary key,
+//     name varchar,
+//     proof numeric
+// );
