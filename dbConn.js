@@ -32,12 +32,4 @@ if (DATABASE_URL) {
     pool = new Pool(dbConfig);
 };
 
-// const pool = DATABASE_URL ? new Pool ({
-//     connectionString: process.env.DATABASE_URL,
-//     ssl: {
-//         rejectUnauthorized: false
-//     }
-// }
-// );
-
 module.exports = pool;

@@ -14,3 +14,11 @@ INSERT INTO drinks (name, type, liquor_id) VALUES ('Dirty Shirley', 'Old-school'
 INSERT INTO drinks (name, type, liquor_id) VALUES ('Pineapple Rum', 'Cocktail', 7);
 INSERT INTO drinks (name, type, liquor_id) VALUES ('Island Rum', 'Punch', 9);
 INSERT INTO drinks (name, type, liquor_id) VALUES ('Captains Passion', 'Punch', 9); 
+
+-- // const pool = DATABASE_URL ? new Pool ({
+-- //     connectionString: process.env.DATABASE_URL,
+-- //     ssl: {
+-- //         rejectUnauthorized: false
+-- //     }
+-- // }
+-- // );
