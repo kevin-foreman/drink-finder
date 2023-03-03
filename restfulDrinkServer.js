@@ -1,6 +1,5 @@
 // set up dependencies
 const cors = require('cors');
-app.use(cors());
 const express = require('express');
 const app = express();
 const fs = require('fs');
