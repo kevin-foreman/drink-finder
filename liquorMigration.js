@@ -2,7 +2,7 @@ const { Pool } = require('pg');
 const DATABASE_URL = process.env.DATABASE_URL;
 const dbConfig = require('./dbConn')
 
-pool.query(`CREATE TABLE IF NOT EXISTS liquor (
+Pool.query(`CREATE TABLE IF NOT EXISTS liquor (
     id serial primary key,
     name varchar,
     proof numeric)`, (err, data) => {
