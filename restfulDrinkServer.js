@@ -7,16 +7,18 @@ const next = require('process');
 // const colors = require('colors/safe');
 const { Pool } = require('pg');
 
+const pool = require('./dbConn');
 
-app.use(express.json());
 
-const pool = new Pool({
-    host: '127.0.0.1',
-    user: 'postgres',
-    database: 'drinkShop',
-    password: 'password',
-    port: 5432
-});
+app.use(express.json()); 
+
+// const pool = new Pool({
+//     host: '127.0.0.1',
+//     user: 'postgres',
+//     database: 'drinkShop',
+//     password: 'password',
+//     port: 5432
+// });
 
 app.get('/api/drinks', (req, res, next) => {
     pool.query("Select * FROM drinks", (err, result) => {
