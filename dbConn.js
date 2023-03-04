@@ -25,6 +25,6 @@ const pool = DATABASE_URL ? new Pool({
     ssl: {
         rejectUnauthorized: false
     }
-}) : new Pool(dbConfig)
+}) : new Pool(dbConfig);
 
 module.exports = pool;

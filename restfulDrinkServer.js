@@ -1,8 +1,9 @@
 // set up dependencies
+const dotenv = require('dotenv');
+dotenv.config();
 const cors = require('cors');
 const express = require('express');
 const app = express();
-const fs = require('fs');
 const next = require('process');
 // const colors = require('colors/safe');
 const { Pool } = require('pg');
