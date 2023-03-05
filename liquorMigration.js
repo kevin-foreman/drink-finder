@@ -3,7 +3,7 @@ const DATABASE_URL = process.env.DATABASE_URL;
 const dbConn = require('./dbConn');
 const pool = dbConn.getPool();
 
-pool.query(`DROP TABLE IF EXISTS liquor CREATE TABLE liquor (
+pool.query(`DROP TABLE IF EXISTS liquor; CREATE TABLE liquor (
     id serial primary key,
     name varchar(60),
     proof numeric)`, (err) => {
