@@ -204,5 +204,5 @@ app.use(cors({ origin: '*' }));
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
-    console.log('Connecting to postgres pool: ', pool);
+    // console.log('Connecting to postgres pool: ', pool);
 });

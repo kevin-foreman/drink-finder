@@ -3,7 +3,7 @@ const DATABASE_URL = process.env.DATABASE_URL;
 const dbConn = require('./dbConn');
 const pool = dbConn.getPool();
 
-pool.query(`DROP TABLE IF EXISTS drinks CREATE TABLE IF NOT EXISTS drinks (
+pool.query(`DROP TABLE IF EXISTS drinks CREATE TABLE drinks (
     id serial primary key,
     name varchar,
     type varchar,
@@ -14,7 +14,7 @@ pool.query(`DROP TABLE IF EXISTS drinks CREATE TABLE IF NOT EXISTS drinks (
     if (err) {
         console.log("CREATE TABLE drinks failed");
     } else {
-        console.log("drinks table created!")
+        console.log("drinks table created!");
     }
 }
 );
