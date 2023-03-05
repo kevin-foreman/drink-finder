@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node restfulDrinkServer",
     "dev": "nodemon restfulDrinkServer",
-    "migrate": "node liquorMigration.js drinksMigration.js",
-    "seed": "node liquorSeed.js drinksSeed.js",
+    "migrate": "node liquorMigration.js && drinksMigration.js",
+    "seed": "node liquorSeed.js && drinksSeed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
