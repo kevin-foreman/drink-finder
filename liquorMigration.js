@@ -7,7 +7,7 @@ const pool = new Pool({
     ...dbConfig,
 });
 
-pool.query(`CREATE TABLE IF NOT EXISTS liquor (
+pool.query(`DROP TABLE IF EXISTS liquor CREATE TABLE IF NOT EXISTS liquor (
     id serial primary key,
     name varchar,
     proof numeric)`, (err, data) => {
