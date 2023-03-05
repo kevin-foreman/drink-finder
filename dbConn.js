@@ -8,7 +8,7 @@ const POSTGRES_DB = process.env.POSTGRES_DB || 'drinkFinder_render';
 const POSTGRES_PASSWORD = process.env.POSTGRES_PASSWORD || 'password';
 const POSTGRES_USER = process.env.POSTGRES_USER || 'postgres';
 const DATABASE_URL = process.env.DATABASE_URL;
-
+function getPool() {
 // Object with connection values to pass to a new Pool() to connect to DB
 const dbConfig = {
     user: POSTGRES_USER,
@@ -20,11 +20,18 @@ const dbConfig = {
 
 // If DATABASE_URL is set as an environmental variable (from Render), use that
 
-const pool = DATABASE_URL ? new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    }
-}) : new Pool(dbConfig);
-
-module.exports = pool;
+let pool = null;
+  if (DATABASE_URL){
+    pool = new Pool({
+          connectionString: process.env.DATABASE_URL,
+          ssl: {
+            rejectUnauthorized: false
+          }
+        });
+        
+  } else {
+    pool = new Pool(dbConfig);
+  }
+  return pool;
+};
+module.exports = {getPool};
