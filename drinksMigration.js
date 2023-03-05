@@ -5,12 +5,12 @@ const pool = dbConn.getPool();
 
 pool.query(`DROP TABLE IF EXISTS drinks CREATE TABLE drinks (
     id serial primary key,
-    name varchar,
-    type varchar,
+    name varchar(60),
+    type varchar(60),
     liquor_id int,
     FOREIGN KEY (liquor_id)
     REFERENCES liquor(id)
-    )`, (err, data) => {
+    )`, (err) => {
     if (err) {
         console.log("CREATE TABLE drinks failed");
     } else {
