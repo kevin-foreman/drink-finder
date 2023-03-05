@@ -1,5 +1,7 @@
 const { Pool } = require('pg');
-const pool = require('./dbConn');
+const dbConn = require('./dbConn');
+const pool = dbConn.getPool();
+
 
 // Run liquor seed SQL
 pool.query(`INSERT INTO liquor (name, proof) VALUES

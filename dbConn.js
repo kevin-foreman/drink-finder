@@ -8,6 +8,7 @@ const POSTGRES_DB = process.env.POSTGRES_DB || 'drinkFinder_render';
 const POSTGRES_PASSWORD = process.env.POSTGRES_PASSWORD || 'password';
 const POSTGRES_USER = process.env.POSTGRES_USER || 'postgres';
 const DATABASE_URL = process.env.DATABASE_URL;
+
 function getPool() {
 // Object with connection values to pass to a new Pool() to connect to DB
 const dbConfig = {
@@ -34,4 +35,4 @@ let pool = null;
   }
   return pool;
 };
-module.exports = {getPool};
+module.exports = { getPool };

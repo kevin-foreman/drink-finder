@@ -1,3 +1,5 @@
+'use strict';
+
 // set up dependencies
 const dotenv = require('dotenv');
 dotenv.config();
@@ -5,21 +7,12 @@ const cors = require('cors');
 const express = require('express');
 const app = express();
 const next = require('process');
+const port = process.env.port || 8000;
 // const colors = require('colors/safe');
-const { Pool } = require('pg');
-
-const pool = require('./dbConn');
-
+const dbConn = require('./dbConn');
+const pool = dbConn.getPool();
 
 app.use(express.json()); 
-
-// const pool = new Pool({
-//     host: '127.0.0.1',
-//     user: 'postgres',
-//     database: 'drinks_db',
-//     password: 'password',
-//     port: 5432
-// });
 
 app.get('/api/drinks', (req, res, next) => {
     pool.query("Select * FROM drinks", (err, result) => {
@@ -209,7 +202,7 @@ app.delete("/api/drinks/:id", (req, res, next) => {
 
 app.use(cors({ origin: '*' }));
 
-const port = process.env.port || 8000;
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
+    console.log('Connecting to postgres pool: ', pool);
 });
