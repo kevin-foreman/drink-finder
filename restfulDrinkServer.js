@@ -156,6 +156,44 @@ app.patch('/api/drinks/:id', (req, res, next) => {
     });
 });
 
+app.patch('/api/liquor/:id', (req, res, next) => {
+    // parse id from URL
+    const id = Number.parseInt(req.params.id);
+    // get data from request body
+    const liquor_id = Number.parseInt(req.body.proof);
+    const { name, type } = req.body;
+    // if id input is ok, make DB call to get existing values
+    if (!Number.isInteger(id)) {
+        res.status(400).send("No liquor found with that ID");
+    }
+    console.log("liquorID: ", id);
+    // get current values of the pet with that id from our DB
+    pool.query('SELECT * FROM liquor WHERE id = $1', [id], (err, result) => {
+        if (err) {
+            return next(err);
+        }
+        console.log("request body name, type, liquor_id: ", name, type, liquor_id);
+        const drink = result.rows[0];
+        console.log("Single liquor ID from DB", id, "values:", liquor);
+        if (!liquor) {
+            return res.status(404).send("No liquor found with that ID");
+        } else {
+            const updatedName = name || liquor.name;
+            const updatedProof = proof || liquor.proof;
+
+            pool.query('UPDATE liquor SET name=$1, proof=$2 WHERE id = $3 RETURNING *',
+                [updatedName, updatedProof], (err, data) => {
+                    if (err) {
+                        return next(err);
+                    }
+                    const updatedLiquor = data.rows[0];
+                    console.log("updated row:", updatedLiquor);
+                    return res.send(updatedLiquor);
+                });
+        };
+    });
+});
+
 app.delete("/api/liquor/:id", (req, res, next) => {
     const id = Number.parseInt(req.params.id);
     if (!Number.isInteger(id)) {
