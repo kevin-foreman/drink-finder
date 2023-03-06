@@ -48,3 +48,7 @@ $('#drinkPick').on('click', function () {
         $(`#span`).append(`<h4 class='comicbooks' id='comics'>${sortedDrinks}</h4>`);
     });
 });
+
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+  });
