@@ -5,6 +5,7 @@ dotenv.config();
 const express = require('express');
 const app = express();
 const port = process.env.port || 8000;
+const jQuery = require('jquery');
 
 jQuery('#drinkPick').on('click', function () {
     let drinkSearch = $('#userSearch').val();
