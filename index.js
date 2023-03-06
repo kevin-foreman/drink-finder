@@ -6,7 +6,7 @@ const express = require('express');
 const app = express();
 const port = process.env.port || 8000;
 
-$('#drinkPick').on('click', function () {
+jQuery('#drinkPick').on('click', function () {
     let drinkSearch = $('#userSearch').val();
     // let myPrivateAPIKey =  config.myPrivateAPIKey;
     // let myPublicAPIKey = config.myPublicAPIKey;
