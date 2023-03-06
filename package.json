@@ -4,7 +4,7 @@
   "description": "Drink Finder",
   "main": "restfulDrinkServer.js",
   "scripts": {
-    "start": "node restfulDrinkServer",
+    "start": "node restfulDrinkServer; node index.js",
     "dev": "nodemon restfulDrinkServer",
     "migrate": "node liquorMigration.js; node drinksMigration.js;",
     "seed": "node liquorSeed.js; node drinksSeed.js;",
