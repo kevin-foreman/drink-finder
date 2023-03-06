@@ -84,7 +84,7 @@ app.post('/api/liquor/', (req, res, next) => {
 app.post('/api/liquor/', (req, res, next) => {
     const { name, proof } = req.body;
 
-    if (!name || !proof) {
+    if (!name || !type || !liquor_id) {
         return res.status(400).send('Error: missing values')
     } else {
 

@@ -1,5 +1,11 @@
 // // import config from './config.json' assert {type: "json"};
 
+
+
+server.use((req, res) => {
+    res.send('Hello Drinks!');
+});
+
 // $('#drinkPick').on('click', function () {
 //     let drinkSearch = $('#userSearch').val();
 //     // let myPrivateAPIKey =  config.myPrivateAPIKey;
