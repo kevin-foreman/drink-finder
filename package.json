@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node restfulDrinkServer; node index.js",
+    "start1": "node restfulDrinkServer",
+    "start2": "node index.js",
     "dev": "nodemon restfulDrinkServer",
     "migrate": "node liquorMigration.js; node drinksMigration.js;",
     "seed": "node liquorSeed.js; node drinksSeed.js;",

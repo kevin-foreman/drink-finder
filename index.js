@@ -6,10 +6,6 @@ const express = require('express');
 const app = express();
 const port = process.env.port || 8000;
 
-// server.use((req, res) => {
-//     res.send('Hello Drinks!');
-// });
-
 $('#drinkPick').on('click', function () {
     let drinkSearch = $('#userSearch').val();
     // let myPrivateAPIKey =  config.myPrivateAPIKey;
@@ -35,7 +31,7 @@ $('#drinkPick').on('click', function () {
         let drinks = dataObj.data.results[0].drinks.items; // .join(', ');  
         let sortedDrinks = [];
         for (let i = 0; i < drinks.length; i++) {
-            sortedDrinks.push(drink[i].name);
+            sortedDrinks.push(drinks[i].name);
             sortedDrinks.toString().split(', ');
             // sortedDrinks.split(', ');
         };
