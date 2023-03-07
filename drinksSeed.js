@@ -2,8 +2,8 @@ const { Pool } = require('pg');
 const dbConn = require('./dbConn');
 const pool = dbConn.getPool();
 
-pool.query(`INSERT INTO drinks (name, type, liquor_id) VALUES
-    ('Titos & Soda', 'Cocktail', 1),
+pool.query(`INSERT INTO drinks (name, type, image, liquor_id) VALUES
+    ('Titos & Soda', 'Cocktail', '{"filename": "tito-soda-lime.jpg", "data": "base64-encoded-image-data"}', 1),
     ('Vodka Tonic', 'Cocktail', 1),
     ('Stormin Sailor', 'Cocktail', 8),
     ('Cranberry & Rum', 'Daiquiri', 5),

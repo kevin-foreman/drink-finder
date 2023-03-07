@@ -7,6 +7,7 @@ pool.query(`DROP TABLE IF EXISTS drinks; CREATE TABLE drinks (
     id serial primary key,
     name varchar(60),
     type varchar(60),
+    image JSONB,
     liquor_id int,
     FOREIGN KEY (liquor_id)
     REFERENCES liquor(id)
