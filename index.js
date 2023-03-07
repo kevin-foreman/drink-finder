@@ -5,24 +5,24 @@ $('#drinkPick').on('click', function () {
     // let myPrivateAPIKey =  config.myPrivateAPIKey;
     // let myPublicAPIKey = config.myPublicAPIKey;
 
-    $.get(`https://drink-finder-2qxj.onrender.com/api/drinks/${drinkSearch}`, (data) => {
+    $.get(`https://drink-finder-2qxj.onrender.com/api/${drinkSearch}`, (data) => {
 
-        let arrayData = JSON.stringify(data);
-        let dataObj = JSON.parse(arrayData);
-        console.log(dataObj);
+        // let arrayData = JSON.stringify(data);
+        // let dataObj = JSON.parse(arrayData);
+        console.log(data);
 
         // Clear previous search if a new search is initiated
         $('#drinkResult').empty();
         // Variables will be assigned to each data point we pull from our API
-        let header = dataObj.name;
-        let image = dataObj.image;
+        let header = data.name;
+        let image = data.image;
         if (image === null) {
             image = 'https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/image-not-found-icon.png';
         } else {
             // image = dataObj.data.results[0].thumbnail.path + '/standard_xlarge.jpg';
         };
-        let type = dataObj[0].type;
-        let drinks = dataObj.data.results[0].drinks.items; // .join(', ');  
+        let type = data.type;
+        let drinks = data; // .join(', ');  
         let sortedDrinks = [];
         for (let i = 0; i < drinks.length; i++) {
             sortedDrinks.push(drinks[i].name);

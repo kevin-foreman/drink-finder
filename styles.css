@@ -9,7 +9,7 @@ body {
 }
 
 .header1 {
-  color: white;
+  color: blue;
   display: flex;
   flex-wrap: unset;
   background-color: yellow;
