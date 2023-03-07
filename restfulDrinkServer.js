@@ -63,7 +63,7 @@ app.get('/api/liquor/:id', (req, res, next) => {
 app.get('/api/drinks/:id', (req, res, next) => {
 
     const id = Number.parseInt(req.params.id);
-    const result = pool.query('SELECT name, type, liquor_id FROM drinks WHERE id = $1, SELECT decode(image->>"image", "base64") AS image_data FROM drinks WHERE id = $1', [id], (err, result) => {
+    const result = pool.query("SELECT name, type, image, liquor_id FROM drinks WHERE id = $1; SELECT decode(image->>'image', 'base64') AS image_data FROM drinks WHERE id = $1", [id], (err, result) => {
         // Code to retrieve the image
         // SELECT decode(data->>'data', 'base64') AS image_data FROM images WHERE id = 1;
         if (err) {
@@ -80,24 +80,6 @@ app.post('/api/liquor/', (req, res, next) => {
     const { name } = req.body;
 
     if (!name || !proof || Number.isNaN(proof)) {
-        return res.status(400).send('Error: missing values')
-    } else {
-
-        pool.query('INSERT INTO liquor (name, proof) VALUES ($1, $2) RETURNING *;', [name, proof], (err, result) => {
-            if (err) {
-                return next(err);
-            };
-            let liquorInfo = result.rows[0];
-            console.log('Added: ' + liquorInfo);
-            res.status(200).send(liquorInfo);
-        });
-    };
-});
-
-app.post('/api/liquor/', (req, res, next) => {
-    const { name, proof } = req.body;
-
-    if (!name || !type || !liquor_id) {
         return res.status(400).send('Error: missing values')
     } else {
 
