@@ -14,14 +14,14 @@ $('#drinkPick').on('click', function () {
         // Clear previous search if a new search is initiated
         $('#drinkResult').empty();
         // Variables will be assigned to each data point we pull from our API
-        let header = dataObj.data.results[0].name;
+        let header = dataObj[0].name;
         let image = dataObj.data.results[0].thumbnail.path + '/standard_xlarge.jpg';
         if (image === null) {
             image = 'https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/image-not-found-icon.png';
         } else {
             // image = dataObj.data.results[0].thumbnail.path + '/standard_xlarge.jpg';
         };
-        let type = dataObj.data.results[0].type;
+        let type = dataObj[0].type;
         let drinks = dataObj.data.results[0].drinks.items; // .join(', ');  
         let sortedDrinks = [];
         for (let i = 0; i < drinks.length; i++) {
