@@ -10,6 +10,7 @@ const next = require('process');
 const port = process.env.port || 8000;
 // const colors = require('colors/safe');
 const dbConn = require('./dbConn');
+const { data } = require('jquery');
 const pool = dbConn.getPool();
 
 app.use((req, res, next) => {
@@ -62,13 +63,13 @@ app.get('/api/liquor/:id', (req, res, next) => {
 app.get('/api/drinks/:id', (req, res, next) => {
 
     const id = Number.parseInt(req.params.id);
-    const result = pool.query('SELECT name, type, liquor_id FROM drinks WHERE id = $1', [id], (err, result) => {
+    const result = pool.query('SELECT name, type, image, liquor_id FROM drinks WHERE id = $1', [id], (err, result) => {
         if (err) {
             return next(err);
         };
-        const pet = result.rows[0];
-        console.log(pet);
-        res.send(pet);
+        const drink = result.rows;
+        console.log(drink);
+        res.send(drink);
     });
 });
 
@@ -116,7 +117,7 @@ app.post('/api/drinks/', (req, res, next) => {
         return res.status(400).send('Error: missing values')
     } else {
 
-        pool.query('INSERT INTO drinks (name, type, liquor_id) VALUES ($1, $2, $3) RETURNING *;', [name, type, liquor_id], (err, result) => {
+        pool.query('INSERT INTO drinks (name, type, image, liquor_id) VALUES ($1, $2, $3, $4) RETURNING *;', [name, type, liquor_id], (err, result) => {
             if (err) {
                 return next(err);
             };
@@ -132,7 +133,7 @@ app.patch('/api/drinks/:id', (req, res, next) => {
     const id = Number.parseInt(req.params.id);
     // get data from request body
     const liquor_id = Number.parseInt(req.body.proof);
-    const { name, type } = req.body;
+    const { name, type, image } = req.body;
     // if id input is ok, make DB call to get existing values
     if (!Number.isInteger(liquor_id)) {
         res.status(400).send("No drink found with that ID");
@@ -143,22 +144,23 @@ app.patch('/api/drinks/:id', (req, res, next) => {
         if (err) {
             return next(err);
         }
-        console.log("request body name, type, liquor_id: ", name, type, liquor_id);
-        const drink = result.rows[0];
+        console.log("request body name, type, image, liquor_id: ", name, type, image, liquor_id);
+        const drink = data;
         console.log("Single drink ID from DB", id, "values:", drink);
         if (!drink) {
             return res.status(404).send("No drink found with that ID");
         } else {
             const updatedName = name || drink.name;
             const updatedType = type || drink.type;
+            const updatedImage = image || drink.image
             const updatedLiquorId = liquor_id || drink.liquor_id;
 
-            pool.query('UPDATE drinks SET name=$1, type=$2, liquor_id=$3 WHERE id = $4 RETURNING *',
-                [updatedName, updatedType, updatedLiquorId, id], (err, data) => {
+            pool.query('UPDATE drinks SET name=$1, type=$2, image=$3, liquor_id=$4 WHERE id = $4 RETURNING *',
+                [updatedName, updatedType, updatedImage, updatedLiquorId, id], (err, data) => {
                     if (err) {
                         return next(err);
                     }
-                    const updatedDrink = data.rows[0];
+                    const updatedDrink = data;
                     console.log("updated row:", updatedDrink);
                     return res.send(updatedDrink);
                 });
