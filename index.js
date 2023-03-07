@@ -15,7 +15,7 @@ $('#drinkPick').on('click', function () {
         $('#drinkResult').empty();
         // Variables will be assigned to each data point we pull from our API
         let header = dataObj[0].name;
-        let image = dataObj.data.results[0].thumbnail.path + '/standard_xlarge.jpg';
+        let image = dataObj.image[0];
         if (image === null) {
             image = 'https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/image-not-found-icon.png';
         } else {
