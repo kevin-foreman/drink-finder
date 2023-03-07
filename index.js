@@ -12,7 +12,7 @@ $('#drinkPick').on('click', function () {
         console.log(data);
         // console.log(data.name);
         // console.log(data.type);
-        console.log(data[0].image);
+        // console.log(data[0].image);
         // Clear previous search if a new search is initiated
         $('#drinkResult').empty();
         // Variables will be assigned to each data point we pull from our API
