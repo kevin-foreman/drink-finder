@@ -6,7 +6,7 @@
   "scripts": {
     "start1": "node restfulDrinkServer",
     "start2": "node index.js",
-    "dev": "nodemon restfulDrinkServer",
+    "dev": "nodemon index.js",
     "migrate": "node liquorMigration.js; node drinksMigration.js;",
     "seed": "node liquorSeed.js; node drinksSeed.js;",
     "test": "echo \"Error: no test specified\" && exit 1"

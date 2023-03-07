@@ -1,13 +1,13 @@
 // // import config from './config.json' assert {type: "json"};
 
-const dotenv = require('dotenv');
-dotenv.config();
+// require('dotenv').config();
+// dotenv.config();
 const express = require('express');
 const app = express();
-const port = process.env.port || 8000;
+const port = process.env.port || 8001;
 const jQuery = require('jquery');
 
-jQuery('#drinkPick').on('click', function () {
+$('#drinkPick').on('click', function () {
     let drinkSearch = $('#userSearch').val();
     // let myPrivateAPIKey =  config.myPrivateAPIKey;
     // let myPublicAPIKey = config.myPublicAPIKey;
