@@ -63,7 +63,9 @@ app.get('/api/liquor/:id', (req, res, next) => {
 app.get('/api/drinks/:id', (req, res, next) => {
 
     const id = Number.parseInt(req.params.id);
-    const result = pool.query('SELECT name, type, image, liquor_id FROM drinks WHERE id = $1', [id], (err, result) => {
+    const result = pool.query('SELECT name, type, liquor_id FROM drinks WHERE id = $1, SELECT decode(image->>"image", "base64") AS image_data FROM drinks WHERE id = $1', [id], (err, result) => {
+        // Code to retrieve the image
+        // SELECT decode(data->>'data', 'base64') AS image_data FROM images WHERE id = 1;
         if (err) {
             return next(err);
         };

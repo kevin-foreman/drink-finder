@@ -3,7 +3,7 @@ const dbConn = require('./dbConn');
 const pool = dbConn.getPool();
 
 pool.query(`INSERT INTO drinks (name, type, image, liquor_id) VALUES
-    ('Titos & Soda', 'Cocktail', '{"filename": "./assets/tito-soda-lime.jpg", "data": "base64-encoded-image-data"}', 1),
+    ('Titos & Soda', 'Cocktail', '{"filename": "./assets/titos-soda-lime.jpg", "data": "base64-encoded-image-data"}', 1),
     ('Vodka Tonic', 'Cocktail', '{"filename": "./assets/vodka-tonic.jpg", "data": "base64-encoded-image-data"}', 1),
     ('Stormin Sailor', 'Cocktail', '{"filename": "./assets/stormin-sailor.jpg", "data": "base64-encoded-image-data"}', 8),
     ('Cranberry & Rum', 'Daiquiri', '{"filename": "./assets/cranberry-rum.jpg", "data": "base64-encoded-image-data"}', 5),
