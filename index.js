@@ -5,7 +5,7 @@ $('#drinkPick').on('click', function () {
     // let myPrivateAPIKey =  config.myPrivateAPIKey;
     // let myPublicAPIKey = config.myPublicAPIKey;
 
-    $.get(`https://drinkies.onrender.com/api/drinks/${drinkSearch}`, (data) => {
+    $.get(`https://drink-finder-2qxj.onrender.com/api/drinks/${drinkSearch}`, (data) => {
 
         let arrayData = JSON.stringify(data);
         let dataObj = JSON.parse(arrayData);

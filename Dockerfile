@@ -9,6 +9,8 @@ COPY package*.json ./
 
 RUN npm install -g nodemon  
 RUN npm install
+RUN npm run migrate
+RUN npm run seed
 
 # Bundle app source and copy the files to the image
 COPY . .
