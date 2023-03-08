@@ -3,22 +3,25 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-# Title
-Drink Finder
+# Drink Finder
 
 ## Description
-A simple full stack application with a custom API to find, and store drinks along with the associated adult beverage that drink uses as a base.
+A simple full stack application with a custom API to find, and store drinks along with the associated adult beverage that drink uses as a base. Screenshot below!
 
 ## Table of Contents
 * [Installation](#installation)
+* [Screenshot](#Screenshot)
 * [Usage](#usage)
 * [Contributors](#contributors)
 * [Tests](#tests)
 * [Questions](#questions)
-* [License](#license) 
+* [License](#license)
 
 ## Installation
 No need to install, visit the live deployed application @ https://drinkies.onrender.com/
+
+## Screenshot
+![alt text](/assets/drinkies-screenshot.jpg)
 
 ## Usage
 Use case scenarios include individual users who wish to add and retrieve different drinks, or a tool a bar/restaurant can use to train new bartenders, or showcase all of the drink possibilities they offer.
@@ -27,7 +30,7 @@ Use case scenarios include individual users who wish to add and retrieve differe
 Kevin Foreman
 
 ## Tests
-Tested extensively with docker, pgAdmin, and running the application locally with nodemon.
+Tested extensively with Postman, docker, pgAdmin, and running the application locally with nodemon.
 
 Contact information (email address & GitHub username) of the developer
 ## Questions
