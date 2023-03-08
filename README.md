@@ -3,11 +3,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-# Title
-Drink Finder
+# Drink Finder
 
 ## Description
-A simple full stack application with a custom API to find, and store drinks along with the associated adult beverage that drink uses as a base.
+A simple full stack application with a custom API to find, and store drinks along with the associated adult beverage that drink uses as a base. Screenshot below!
 
 ## Table of Contents
 * [Installation](#installation)
