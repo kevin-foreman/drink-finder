@@ -9,7 +9,9 @@ import next from 'process';
 const port = process.env.port || 8000;
 // const colors = require('colors/safe');
 import { getPool } from './dbConn.js';
-import { data } from 'jquery';
+// import { data } from 'jquery';
+import pkg from 'jquery';
+const { data } = pkg;
 const pool = getPool();
 
 app.use((req, res, next) => {
