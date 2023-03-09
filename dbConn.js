@@ -1,6 +1,8 @@
 // Create a new Pool connection to pg
 
-import { Pool } from 'pg';
+// import { Pool } from 'pg';
+import pkg from 'pg';
+const { Pool } = pkg;
 // Environmental variables for DB connection or use default if not defined
 // Local environment may not have them, but Render will when deployed
 const POSTGRES_HOST = process.env.POSTGRES_HOST || '127.0.0.1';
