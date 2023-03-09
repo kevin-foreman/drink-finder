@@ -1,4 +1,6 @@
-import { Pool } from 'pg';
+// import { Pool } from 'pg';
+import pkg from 'pg';
+const { Pool } = pkg;
 import { getPool } from './dbConn';
 const pool = getPool();
 
