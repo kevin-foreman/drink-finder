@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Drink Finder",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start1": "node restfulDrinkServer",
     "start2": "node index.js",
