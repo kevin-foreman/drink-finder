@@ -1,6 +1,6 @@
-const { Pool } = require('pg');
-const dbConn = require('./dbConn');
-const pool = dbConn.getPool();
+import { Pool } from 'pg';
+import { getPool } from './dbConn';
+const pool = getPool();
 
 pool.query(`INSERT INTO drinks (name, type, image, liquor_id) VALUES
     ('Titos & Soda', 'Cocktail', '{"filename": "./assets/titos-soda-lime.jpg", "data": "base64-encoded-image-data"}', 1),

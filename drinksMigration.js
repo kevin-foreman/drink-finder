@@ -1,7 +1,7 @@
-const { Pool } = require('pg');
+import { Pool } from 'pg';
 const DATABASE_URL = process.env.DATABASE_URL;
-const dbConn = require('./dbConn');
-const pool = dbConn.getPool();
+import { getPool } from './dbConn';
+const pool = getPool();
 
 pool.query(`DROP TABLE IF EXISTS drinks; CREATE TABLE drinks (
     id serial primary key,

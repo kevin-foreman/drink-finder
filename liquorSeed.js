@@ -1,6 +1,6 @@
-const { Pool } = require('pg');
-const dbConn = require('./dbConn');
-const pool = dbConn.getPool();
+import { Pool } from 'pg';
+import { getPool } from './dbConn';
+const pool = getPool();
 
 
 // Run liquor seed SQL
