@@ -1,6 +1,6 @@
 import { Pool } from 'pg';
 const DATABASE_URL = process.env.DATABASE_URL;
-import { getPool } from './dbConn';
+import { getPool } from './dbConn.js';
 const pool = getPool();
 
 pool.query(`DROP TABLE IF EXISTS liquor; CREATE TABLE liquor (
