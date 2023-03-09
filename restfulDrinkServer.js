@@ -8,7 +8,7 @@ const app = express();
 import next from 'process';
 const port = process.env.port || 8000;
 // const colors = require('colors/safe');
-import { getPool } from './dbConn';
+import { getPool } from './dbConn.js';
 import { data } from 'jquery';
 const pool = getPool();
 
