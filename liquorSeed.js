@@ -1,7 +1,7 @@
 // import { Pool } from 'pg';
 import pkg from 'pg';
 const { Pool } = pkg;
-import { getPool } from './dbConn';
+import { getPool } from './dbConn.js';
 const pool = getPool();
 
 
