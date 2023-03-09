@@ -1,4 +1,6 @@
-import { Pool } from 'pg';
+// import { Pool } from 'pg';
+import pkg from 'pg';
+const { Pool } = pkg;
 const DATABASE_URL = process.env.DATABASE_URL;
 import { getPool } from './dbConn.js';
 const pool = getPool();
