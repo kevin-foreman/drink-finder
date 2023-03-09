@@ -1,17 +1,16 @@
 'use strict';
 
 // set up dependencies
-const dotenv = require('dotenv');
-dotenv.config();
-const cors = require('cors');
-const express = require('express');
+require('dotenv').config();
+import cors from 'cors';
+import express, { json } from 'express';
 const app = express();
-const next = require('process');
+import next from 'process';
 const port = process.env.port || 8000;
 // const colors = require('colors/safe');
-const dbConn = require('./dbConn');
-const { data } = require('jquery');
-const pool = dbConn.getPool();
+import { getPool } from './dbConn';
+import { data } from 'jquery';
+const pool = getPool();
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -20,10 +19,10 @@ app.use((req, res, next) => {
     if (req.method === 'OPTIONS') {
         return res.sendStatus(200); // respond OK to OPTIONS requests
     }
-    next();
+    next(); 
 });
 
-app.use(express.json());
+app.use(json());
 
 app.get('/api/drinks', (req, res, next) => {
     pool.query("Select * FROM drinks", (err, result) => {
